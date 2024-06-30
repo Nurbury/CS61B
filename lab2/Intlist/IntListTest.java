@@ -62,8 +62,15 @@ public class IntListTest {
         IntList A = IntList.of(1, 2, 3);
         IntList B = IntList.of(4, 5, 6);
         IntList exp = IntList.of(1, 2, 3, 4, 5, 6);
-        assertEquals(exp, IntList.catenate(A, B));
+        assertEquals(exp, IntList.catenate(A,B));
         assertEquals(IntList.of(1, 2, 3), A);
+    }
+
+    @Test
+    public void testSquareListIterative() {
+        IntList A = IntList.of(1,2,3);
+        System.out.println(IntList.squareListIterative(A));
+        System.out.println(A);
     }
 
 }
