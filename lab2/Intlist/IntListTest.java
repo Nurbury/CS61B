@@ -73,4 +73,13 @@ public class IntListTest {
         System.out.println(A);
     }
 
+    @Test
+    public void testCatenate1() {
+        IntList B = IntList.of(6,7,8);
+        IntList A = IntList.of(1,2,3,4);
+        IntList C = IntList.catenate(A,B);
+        System.out.println(C);
+        System.out.println(A);
+    }
+
 }
