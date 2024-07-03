@@ -58,7 +58,8 @@ public class NBody {
             StdDraw.picture(0,0,"images/starfield.jpg");
 
             for (Planet p : planets) {
-                StdDraw.picture(p.xxPos, p.yyPos, "images/" + p.imgFileName);
+//                StdDraw.picture(p.xxPos, p.yyPos, "images/" + p.imgFileName);
+                p.draw();
             }
 
 
