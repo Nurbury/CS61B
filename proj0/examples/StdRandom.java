@@ -44,8 +44,9 @@
  *      strength random number generator in Java.
  *
  ******************************************************************************/
-
+package examples;
 import java.util.Random;
+import examples.StdOut;
 
 /**
  *  The {@code StdRandom} class provides static methods for generating
