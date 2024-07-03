@@ -61,18 +61,10 @@ public class NBody {
                 StdDraw.picture(p.xxPos, p.yyPos, "images/" + p.imgFileName);
             }
 
-//            StdDraw.picture(planets[0].xxPos,planets[0].yyPos,"images/" + planets[0].imgFileName);
-//            StdDraw.picture(planets[1].xxPos,planets[1].yyPos,"images/" + planets[1].imgFileName);
-//            StdDraw.picture(planets[2].xxPos,planets[2].yyPos,"images/" + planets[2].imgFileName);
-//            StdDraw.picture(planets[3].xxPos,planets[3].yyPos,"images/" + planets[3].imgFileName);
-//            StdDraw.picture(planets[4].xxPos,planets[4].yyPos,"images/" + planets[4].imgFileName);
-
-//        StdDraw.
 
             StdDraw.show();
             StdDraw.pause(10);
             time += dt;
-            System.out.println(time);
         }
         StdOut.printf("%d\n", planets.length);
         StdOut.printf("%.2e\n", radius);
