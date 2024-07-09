@@ -73,6 +73,12 @@ public class LinkedListDequeTest {
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst(10);
+		lld1.getRecursive(0);
+		lld1.addFirst(9);
+		lld1.addFirst(8);
+		lld1.addFirst(7);
+		int d = lld1.getRecursive(1);
+		System.out.println("d:" + d + "expected : 8");
 		// should not be empty 
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
@@ -90,4 +96,4 @@ public class LinkedListDequeTest {
 		addIsEmptySizeTest();
 		addRemoveTest();
 	}
-} 
+}

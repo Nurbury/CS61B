@@ -9,26 +9,36 @@
 
 
 public class ArrayDeque<T> {
+    // the number of the items in the lists;
     private int size;
+    // the pos of the ArrayDeque
+    private int nextFirst; // 队尾
+    private int nextLast; // 队头
     private T[] lists;
 
 
     public ArrayDeque() {
         lists = (T[]) new Object[8];
-        size = 8;
+        size = 0;
+        nextFirst = lists.length - 1;
+        nextLast = 0;
     }
 
-    public ArrayDeque(ArrayDeque other) {
-        System.arraycopy(other, 0, lists,8,other.size());
-    }
+//    public ArrayDeque(ArrayDeque other) {
+//        System.arraycopy(other,0,lists,0,other.size());
+//    }
 
     /**
      * add an item of type T to the front of the Deque
      * @param item
      */
     public void addFirst(T item) {
-       lists[size] = item;
+        if (size == lists.length) {
+            resizeFirst(size+1);
+        }
+       lists[nextFirst] = item;
        size++;
+       nextFirst--;
     }
 
     /**
@@ -36,8 +46,12 @@ public class ArrayDeque<T> {
      * @param item
      */
     public void addLast(T item) {
-        lists[7] = item;
+        if (size == lists.length) {
+            resizeLast(size+1);
+        }
+        lists[nextLast] = item;
         size++;
+        nextLast++;
     }
 
     /**
@@ -72,8 +86,12 @@ public class ArrayDeque<T> {
      * @return
      */
     public T removeFirst() {
-        T temp = lists[0];
-        lists[0] = null;
+        if (isEmpty()) {
+            return null;
+        }
+        T temp = lists[nextFirst];
+        lists[nextFirst] = null;
+        size--;
         return temp;
     }
 
@@ -82,8 +100,12 @@ public class ArrayDeque<T> {
      * @return
      */
     public T removeLast() {
-        T temp = lists[size - 1];
-        lists[size - 1] = null;
+        if (size == 0) {
+            return null;
+        }
+        T temp = lists[nextLast];
+        lists[nextLast] = null;
+        size--;
         return temp;
     }
 
@@ -93,6 +115,24 @@ public class ArrayDeque<T> {
      * @return
      */
     public T get(int index) {
+        if (size <= index) {
+            return null;
+        }
         return lists[index];
+    }
+
+    private void resizeFirst(int capacity) {
+        T[] a = (T[]) new Object[capacity];
+        System.arraycopy(lists,nextLast,a,nextFirst+2,lists.length);
+        nextFirst = nextLast;
+        lists = a;
+
+    }
+
+    private void resizeLast(int capacity) {
+        T[] a = (T[]) new Object[capacity];
+        System.arraycopy(lists,0,a,0,nextLast);
+        nextFirst = lists.length;
+        lists = a;
     }
 }
