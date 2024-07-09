@@ -87,10 +87,10 @@ public class ArrayDeque<T> {
      */
     public T removeFirst() {
         if (isEmpty()) {
-            return null;
+            return  null;
         }
-        T temp = lists[nextFirst];
-        lists[nextFirst] = null;
+        T temp = lists[nextLast - size];
+        lists[nextLast - size] = null;
         size--;
         return temp;
     }
@@ -103,8 +103,8 @@ public class ArrayDeque<T> {
         if (size == 0) {
             return null;
         }
-        T temp = lists[nextLast];
-        lists[nextLast] = null;
+        T temp = lists[nextFirst + size];
+        lists[nextFirst + size] = null;
         size--;
         return temp;
     }
