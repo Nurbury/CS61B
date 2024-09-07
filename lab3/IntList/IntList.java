@@ -136,8 +136,8 @@ public class IntList {
 
     public static IntList reverse(IntList A) {
 
-        if (A.rest == null) {
-            return new IntList(A.first,null);
+        if (A == null) {
+            return null;
         }
 
 
